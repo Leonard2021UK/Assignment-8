@@ -1,9 +1,7 @@
 package com.codercampus.async;
 
-import javax.swing.*;
 import java.util.*;
 import java.util.concurrent.*;
-import java.util.stream.Stream;
 
 public class AsyncApp {
 
@@ -22,13 +20,14 @@ public class AsyncApp {
             // processes a chunk of data (1000 numbers)
             CompletableFuture<Void> future =  CompletableFuture.supplyAsync(()->taskProvider,service)
                 .thenApply(Assignment8::getNumbers)
-                .thenAccept((List<Integer> set) -> set.forEach(num ->{
-                    // synchronously counts each number's occurrence
-                    synchronized(intCounter){
-                        // increments the number of the corresponding number type by 1
-                        intCounter.merge(num,1,Integer::sum);
-                    }
-                }));
+                .thenAccept((List<Integer> set) -> set
+                        .forEach(num ->{
+                            // synchronously counts each number's occurrence
+                            synchronized(intCounter){
+                                // increments the number of the corresponding number type by 1
+                                intCounter.merge(num,1,Integer::sum);
+                            }
+                        }));
             //  collects the created CompletableFuture
             futures.add(future);
         }
@@ -45,7 +44,7 @@ public class AsyncApp {
             sum = sum +value;
         }
 
-        System.out.println(sum);
+        System.out.println("Tota number of numbers counted: " + sum);
     }
 
 }
