@@ -10,7 +10,7 @@ public class AsyncApp {
         Assignment8 taskProvider = new Assignment8();
         // holds the number of ech type of number
         // here I could use ConcurrentHashMap, thus I could eliminate the synchronised block in the loop
-        Map<Integer,Integer> intCounter = new HashMap<>();
+        Map<Integer,Integer> intCounter = new ConcurrentHashMap<>();
         // stores all CompletableFutures
         List<CompletableFuture<Void>> futures = new ArrayList<>();
         // creates a Cached thread pool
