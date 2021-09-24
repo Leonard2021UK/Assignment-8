@@ -5,13 +5,12 @@ import java.util.concurrent.*;
 
 public class AsyncApp {
     // here I could use ConcurrentHashMap, thus I could eliminate the synchronised block in the loop
+    // holds the number of ech type of number
     public static final Map<Integer, Integer> intCounter = new ConcurrentHashMap<>();
 
     public static List<CompletableFuture<Void>> generateFutures(int numberOfFutures){
         // instantiate a task provider
         Assignment8 taskProvider = new Assignment8();
-        // holds the number of ech type of number
-
         // stores all CompletableFutures
         List<CompletableFuture<Void>> futures = new ArrayList<>();
         // creates a Cached thread pool
