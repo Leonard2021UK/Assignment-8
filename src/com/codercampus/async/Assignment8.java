@@ -5,10 +5,14 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Assignment8 {
+
+
     private List<Integer> numbers = null;
     private Integer i=0;
 
@@ -25,6 +29,8 @@ public class Assignment8 {
         }
     }
 
+
+
     /**
      * This method will return the numbers that you'll need to process from the
      *   list of Integers. However, it can only return 1000 records at a time.
@@ -38,7 +44,7 @@ public class Assignment8 {
             start = i;
             end = i+1000;
             i += 1000;
-            System.out.println("Starting to fetch records " + start + " to " + (end));
+//            System.out.println("Starting to fetch records " + start + " to " + (end));
         }
         // force thread to pause for half a second to simulate actual Http / API traffic delay
         try { Thread.sleep(500); } catch (InterruptedException e) { }
@@ -48,7 +54,7 @@ public class Assignment8 {
                 .forEach(n -> {
                     newList.add(numbers.get(n));
                 });
-        System.out.println("Done Fetching records " + start + " to " + (end));
+//        System.out.println("Done Fetching records " + start + " to " + (end));
         return newList;
     }
 
