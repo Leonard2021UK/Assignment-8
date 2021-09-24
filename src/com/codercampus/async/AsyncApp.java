@@ -14,7 +14,7 @@ public class AsyncApp {
         // stores all CompletableFutures
         List<CompletableFuture<Void>> futures = new ArrayList<>();
         // creates a Cached thread pool
-        ExecutorService service = Executors.newCachedThreadPool();
+        ExecutorService service = Executors.newFixedThreadPool(100);
         // creates a CompletableFuture for each chunk of data
         for (int i = 0;i < numberOfFutures;i++){
             // processes a chunk of data (1000 numbers)
