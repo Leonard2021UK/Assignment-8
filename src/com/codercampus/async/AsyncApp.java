@@ -2,7 +2,6 @@ package com.codercampus.async;
 
         import java.util.*;
         import java.util.concurrent.*;
-        import java.util.concurrent.atomic.AtomicInteger;
 
 public class AsyncApp {
 
