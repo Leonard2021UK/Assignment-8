@@ -34,6 +34,8 @@ public class AsyncApp {
             futures.add(future);
         }
 
+        service.shutdown();
+
         // waits until all CompletableFuture are finished
         for (CompletableFuture<Void> future : futures) {
             future.join();
@@ -47,6 +49,8 @@ public class AsyncApp {
         }
 
         System.out.println("Total number of numbers counted: " + sum);
+
+
     }
 
 }
